@@ -1,0 +1,27 @@
+What is version control and why is it important?
+1. Meaning of Version Control:
+The version control is a system that allows us to update repositories, for example in GitHub.
+I can clone a repo in my local directory and then push the changes back to GitHub,
+The version control allows to see the history of changes, to revert and/or merge changes. The version cotrol improve
+the teamwork and the comunnication in a specific project.  
+
+
+2. Highlight a benefit of Version Control
+A remarkable benefit is to see in red the old version of the code and in green the new one with a 
+strong green in the specific modified part, this benefit are useful when we need to debug and track
+the progress of the project. 
+
+3. Provide an application of Version Control. This means, provide an example of how Version Control could be used.
+For example, if we are in a software project to develop a program that calculate loans, with the version control,
+each teammate can work in a specific feature of the project, for example, I can work in the buttons, other teammate can 
+develop the GUI and other teammate can develop the program to test the project, using version control we are able to
+integrate each feature to complete the project, to debug any error, track the updates and have
+organize the repositorie. 
+
+4. Show a command used in Version Control (for example a Git command):
+Git Status
+
+5. Thoroughly explain these concepts (this likely cannot be done in less than 100 words):
+I like Git Status command because it help us to know the state of our directory and files, and
+the staging area. The staging area is so useful because allow us to not overcommit innecesary changes
+and show us which directories and files are staged in which files are not.
