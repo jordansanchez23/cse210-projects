@@ -1,0 +1,39 @@
+1)Explain the meaning of Abstraction
+Asnwer: Is the process to make a complex project or idea into small or simple pieces to
+facilitate the task to achieve the same project.
+
+2)Highlight a benefit of Abstraction
+Answer: It allow us to reduce significatly the complexity of some idea or project avoiding 
+innecessary details and focus us in the essential parts of the main idea.
+
+
+3)Provide an application of Abstraction
+Answer: To make a shopping list can look like a hard process if we don't separate into small pieces
+as functions, variables (methods, attributes) to accomplish the shopping list.
+
+
+4)Use a code example of Abstraction from the program you wrote
+if (choice == "1")
+            {
+                string date = DateTime.Now.ToShortDateString();
+                string prompt = promptGenerator.GetRandomPrompt();
+                Console.WriteLine($"Prompt: {prompt}");
+                Console.Write("Response: ");
+                string entryText = Console.ReadLine();
+                Console.Write("Location/Context (home, office, school): ");
+                string location = Console.ReadLine();
+                Entry newEntry = new Entry(date, prompt, entryText, location);
+                myJournal.AddEntry(newEntry);
+            }
+
+            else if (choice == "2")
+            {
+                myJournal.DisplayAll();
+            }
+
+
+5)Thoroughly explain these concepts (this likely cannot be done in less than 100 words)
+Answer: For example in this parte of the program.cs I was able to combine different methods(functions)
+as promptGenerator (the function to choose a random prompt for the user), and use the class Entryto to store
+the enough parameters to relate the Console.WriteLine(_date, _prompt, _entryText, _location);
+and also the function/method DisplayAll it facilitates to show what data is in "myJournal"
