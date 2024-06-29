@@ -1,0 +1,50 @@
+1)Explain the meaning of Encapsulation
+It is the practice of making some atributtes to private to protect the data that
+is required to achieve the methods and constructors for example, the attribute pi needs to be private,
+because pi its always gonna be 3.141516(for example)
+2)Highlight a benefit of Encapsulation
+One benefit is that this kind of practice protects and void future mistakes for overwriting values
+3)Provide an application of Encapsulation
+Fo example in the program to memorize the scripture I putted the attributes as book, chapter and verse as privates avoiding to change the fix data I need to display
+4)Use a code example of Encapsulation from the program you wrote
+public class Reference
+{
+    private string _book;
+    private int _chapter;
+    private int _verse;
+    private int _endVerse;
+    private string _context;
+
+    public Reference(string book, int chapter, int verse, string context)
+    {
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
+        _endVerse = -1;
+        _context = context;
+    }
+
+    public Reference(string book, int chapter, int verse, int endVerse, string context)
+    {
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
+        _endVerse = endVerse;
+        _context = context;
+    }
+
+    public string GetDisplayText()
+    {
+        if (_endVerse == -1)
+        {
+            return $"{_book} {_chapter}:{_verse} - context: {_context}";
+        }
+        else{
+            return $"{_book} {_chapter}:{_verse}-{_endVerse} - context: {_context}";
+        }
+    }
+}
+5)Thoroughly explain these concepts (this likely cannot be done in less than 100 words)
+In this case I was able to make the atributes privates and with the constructors receive the data, but 
+taking care about not changing the original value. And this kind of good practice it's key if we're going 
+to scalate the project for example, adding 1000 scriptures for example.
