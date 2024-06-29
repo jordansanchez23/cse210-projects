@@ -1,5 +1,5 @@
 using System;
-
+// I added the context, because the content of the scripture can help to the person to relate the scripture with the story //
 
 class Program
 {
