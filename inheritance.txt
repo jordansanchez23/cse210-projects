@@ -1,0 +1,31 @@
+1)Explain the meaning of Inheritance
+Is the 3rd fundamental of OOP and is useful because you can have a base class and the 
+derived class where you can reuse the variables from the father class
+2)Highlight a benefit of Inheritance
+The reusability helps a lot, because you can call the variables from the base class to use these in derived class
+3)Provide an application of Inheritance
+For example in the activity, we can have the base activity that is where you can put attributes attributes
+as the starting and ending messange, the spiner and the countdown, then you can apply them in each activity
+4)Use a code example of Inheritance from the program you wrote
+5)Thoroughly explain these concepts (this likely cannot be done in less than 100 words)
+public void ShowSpinner(int seconds)
+    {
+        List<string> animationStrings = new List<string> { "|", "/", "-", "\\" };
+
+        DateTime endTime = DateTime.Now.AddSeconds(seconds);
+        int i = 0;
+
+        while (DateTime.Now < endTime)
+        {
+            string s = animationStrings[i];
+            Console.Write(s);
+            Thread.Sleep(250);
+            Console.Write("\b \b");
+            i = (i + 1) % animationStrings.Count;
+        }
+    }
+
+In this fragment I share the spinner, I used in different parts this spinner and because this method
+is inside the base class has the property to be reusable and the 3 activities (breathing, listing and reflecting)
+The Inheritance allows hierarchical and combined with abstracion and encapsulation helps to make the program more organized and more efficient,
+Obviously not doing more than 4 childs per base class, because in the future it's gonna be hard to relate the different child classes. 
