@@ -1,0 +1,29 @@
+1)Explain the meaning of Polymorphism
+In my words, Polymorphismis is how a method can has a different behaviors using the "Abstract" and overriding, even
+if is the same method, to use this kind of principle helps to make more dynamic and flexible the classes and the program as well. 
+
+2)Highlight a benefit of Polymorphism
+To use this kind of principle helps to make more dynamic and flexible the classes and the program as well. 
+
+3)Provide an application of Polymorphism
+For example to retrieve the area of a few shapes (as a rectangle, circle and so on) we can use the same method but different behaviors, because
+the formula of each shape changes in order to get the area, and the beauty of the Polymorphism is that allows you to be flexible and use the same method if applies. 
+
+4)Use a code example of Polymorphism from the program you wrote
+ public override double GetArea()
+    {
+        return _side * _side;
+    }
+
+
+public override double GetArea()
+    {
+        return _length * _width;
+    }
+
+    
+
+5)Thoroughly explain these concepts (this likely cannot be done in less than 100 words)
+For example, in this case I am using the same method but overriding the method I am able to
+change the behavior, in this case the method returns a different data, this is because the formula's square is side * side
+and the area from the rectangle is _length * _width and at the same time I like that you can use the base or father class to use the attributes. 
