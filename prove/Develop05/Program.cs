@@ -1,9 +1,13 @@
+//GoalManager class manages goals and visualizes progress using a simple bar.
+//Progress is shown after recording events, reflecting the user's score towards goals
+
 using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop05 World!");
+        GoalManager manager = new GoalManager();
+        manager.Start();
     }
 }

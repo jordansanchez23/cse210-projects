@@ -1,0 +1,4 @@
+850
+Simple|leer|meditacion|100|True
+Eternal|correr|mejor condicion|50|False
+Checklist|casarme|en el templo|50|3|3|500
