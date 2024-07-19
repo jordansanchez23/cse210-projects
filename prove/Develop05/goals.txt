@@ -1,4 +1,4 @@
-850
-Simple|leer|meditacion|100|True
-Eternal|correr|mejor condicion|50|False
-Checklist|casarme|en el templo|50|3|3|500
+0
+Simple|leer|un libro en la noche|100|False
+Eternal|orar|en la noches orar|50
+Checklist|casarme|en el templo|50|0|3|500
