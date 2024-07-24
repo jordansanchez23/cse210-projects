@@ -1,0 +1,348 @@
+1)Abstraction Definition
+Is the process to breaking down the final project into smaller parts(classes, methods, behaviors and attributes)
+In order to complete the project it is important to broke it in small parts, this allows to reuse the code and is easier
+to test and debug. 
+
+2)Encapsulation Definition
+This principle helps to protect the attributes(as as "private") for unwanted changes, when using getters, setters and constructors you avoid unwanted changes into the
+private attributes and at the same time you can control the access by methods. 
+
+3)Inheritance Definition
+This principle uses a base class/father class to inherit derived classes avoiding to repeat the same methods and attributes that are in common with the child classes, and allows each derived
+classes to work independently and call the base functions and attributes if it is required.
+This principle helps to reuse the code because you can override the base methods and attributes as needed.
+
+4)Polymorphism Definition
+Is the process where you can use the same method as the base class (you need the inheritance principle first to apply after this principle)
+to override and change the behavior of the the methods, this process helps to make more dynamic the project, because if you need the same "formula method" for each class,
+you can adjust as needed the behavior and operations for the triangle, circle or any other shape area for example.
+
+5)Abstraction - Use in project:
+
+In the Foundation #1 I broke into smaller components the project(Video, comments and program classes)
+
+(Program class)
+class Program
+{
+    static void Main(string[] args)
+    {
+        Video video1 = new Video("Video 1", "Author 1", 300);
+        video1.addComment(new Comment("User 1", "Comment 1 in Video 1"));
+        video2.addComment(new Comment("User 4", "Comment 4 in Video 4"));
+        video3.addComment(new Comment("User 7", "Comment 7 in Video 7"));
+
+        List<Video> videos = new List<Video> {video};
+        foreach (Video video in videos)
+        {
+            Console.WriteLine(video.getVideoInfo());
+            video.displayComments();
+            Console.WriteLine();
+        }
+    }
+}
+
+(Video class)
+public class Video
+{
+    public string _title;
+    public string _author;
+    public int _lengthInSeconds;
+    public  List<Comment> _comments;
+    public int _numberOfComments;
+
+
+    public Video(string title, string author, int lengthInSeconds)
+    {
+        _title = title;
+        _author = author;
+        _lengthInSeconds = lengthInSeconds;
+        _comments = new List<Comment>();
+        _numberOfComments = 0;
+    }
+
+    public void addComment(Comment comment)
+    {
+        _comments.Add(comment);
+        _numberOfComments++;
+    }
+
+    public string getVideoInfo()
+    {
+        return $"Title: {_title}, Author: {_author}, Length: {_lengthInSeconds} seconds, Number of Comments: {_numberOfComments}";
+    }
+
+    public void displayComments()
+    {
+        foreach (Comment comment in _comments)
+        {
+            Console.WriteLine(comment.getCommentInfo());
+        }
+    }
+}
+
+public class Comment
+{
+    public string _name;
+    public string _text;
+
+    public Comment(string name, string text)
+    {
+        _name = name;
+        _text = text;
+    }
+
+    public string getCommentInfo()
+    {
+        return $"Name: {_name}, Comment: {_text}";
+    }
+}
+
+
+6)Encapsulation - Use in project
+
+I protected the attributes with "private" and I handled the access with constructors, getters and setters.
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Address address1 = new Address("555 Montes de Oca St", "Tijuana", "Baja California", "22014", "Mexico");
+        Customer customer1 = new Customer("Pedro Fernandez", address1);
+        Product product1 = new Product("Television", 57, 1299.99m, 1);
+        Order order1 = new Order(customer1);
+        Console.WriteLine("Order 1: ");
+        Console.WriteLine(order1.GeneratePackingLabel());
+        Console.WriteLine(order1.GenerateShippingLabel());
+        Console.WriteLine($"Total Price: {order1.CalculateTotal():C}\n");
+    }
+}
+
+public class Product
+{
+    private string _name;
+    private int _id;
+    private decimal _price;
+    private int _quantity;
+
+    public Product(string name, int id, decimal price, int quantity)
+    {
+        _name = name;
+        _id = id;
+        _price = price;
+        _quantity = quantity;
+    }
+
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public void SetName(string name)
+    {
+        _name = name;
+    }
+
+     public int GetId()
+    {
+        return _id;
+    }
+
+    public void SetId(int Id)
+    {
+        _id = Id;
+    }
+    And so on...
+}
+
+public class Order
+{
+    private List<Product> _products;
+    private Customer _customer;
+
+    public Order(Customer customer)
+    {
+        _customer = customer;
+        _products = new List<Product>();
+    }
+
+    public List<Product> GetProducts()
+    {
+        return _products;
+    }
+    public void SetProduct(List<Product> products)
+    {
+        _products = products;
+    }
+
+    public Customer GetCustomer()
+    {
+        return _customer;
+    }
+
+    public void SetCustomer(Customer customer)
+    {
+        _customer = customer;
+    }
+    
+}
+The same dynamic with the rest of the classes... 
+
+7)Inheritance - Use in project
+
+I assigned the Event.cs as the base class and the child classes inherited the main methods and attributes
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Address address1 = new Address("555 Montes de Oca St", "Tijuana","22014", "Mexico");
+        Address address2 = new Address("752 Golder Lantern St", "Carlsbad", "92008", "USA");
+        Address address3 = new Address("582 Hills St", "San Marcos", "95016", "USA");
+
+        Reception reception = new Reception(
+            "Reception at the Beach",
+            "A peacefully evening reception with music and food",
+            new DateTime(2024, 8, 10),
+            new TimeSpan(18, 0, 0),
+            address1,
+            new List<string> {"joivisvis@hotmail.com", "jordansanchez.connect@outlook.com"}
+
+            And so on...
+        );
+    }
+}
+
+public class Reception : Event
+{
+    private List<string> _rsvpEmails;
+
+    public Reception(string title, string description, DateTime date, TimeSpan time, Address address, List<string> rsvpEmails) : base(title, description, date, time, address)
+    {
+        _rsvpEmails = rsvpEmails;
+    }
+
+    public  string GenerateFullMessage()
+    {
+        return $"{GenerateStandardMessage()}\nRSVP Emails: {string.Join(", ", _rsvpEmails)}";
+    }
+
+
+
+}
+
+public class OutdoorGathering : Event
+{
+    private string _weatherForecast;
+
+    public OutdoorGathering(string title, string description, DateTime date, TimeSpan time, Address address, string weatherForecast) : base(title, description, date, time, address)
+    {
+        _weatherForecast = weatherForecast;
+    }
+
+    public string GenerateFullMessage()
+    {
+        return $"{GenerateStandardMessage()}\nWeather Forecast: {_weatherForecast}";
+    }
+
+}
+The same dynamic with the rest of the classes.
+
+8)Polymorphism - Use in project
+
+The derived classes using the same name method adjusted the behavior as needed, displaying different results and 
+showing dynamism and flexibility.
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<Activity> activities = new List<Activity>
+        {
+            new Running(new DateTime(2024, 7, 20), 30, 3.0),
+            new Cycling(new DateTime(2024, 7, 21), 45, 15.0),
+            new Swimming(new DateTime(2024, 7, 22), 60, 30)
+        };
+
+        foreach (var activity in activities)
+        {
+            Console.WriteLine(activity.GetSummary());
+        }
+
+    }
+}
+
+public abstract class Activity
+{
+    private DateTime _date;
+    private int _durationMinutes;
+
+    protected Activity(DateTime date, int durationMinutes)
+    {
+        _date = date;
+        _durationMinutes = durationMinutes;
+    }
+
+    public DateTime Date => _date;
+    public int DurationMinutes => _durationMinutes;
+
+    public abstract double GetDistance();
+    public abstract double GetSpeed();
+    public abstract double GetPace();
+
+    public string GetSummary()
+    {
+        return $"{_date.ToString("dd MMM yyyy")} {GetType().Name} ({DurationMinutes} min) - " +
+        $"Distance: {GetDistance()} {GetDistanceUnit()}, Speed: {GetSpeed()} {GetSpeedUnit()}, Pace: {GetPace()} min per {GetPaceUnit()}";
+    }
+
+    protected abstract string GetDistanceUnit();
+    protected abstract string GetSpeedUnit();
+    protected abstract string GetPaceUnit();
+}
+
+public class Cycling : Activity
+{
+    private double _speed;
+
+    public Cycling(DateTime date, int durationMinutes, double speed) : base(date, durationMinutes)
+    {
+        _speed = speed;
+    }
+
+    public override double GetDistance() => _speed * (DurationMinutes / 60.0);
+
+    public override double GetSpeed() => _speed;
+
+    public override double GetPace() => 60 / GetSpeed();
+
+    protected override string GetDistanceUnit() => "miles";
+    protected override string GetSpeedUnit() => "mph";
+    protected override string GetPaceUnit() => "mile";
+}
+
+public class Running : Activity
+{
+    private double _distance;
+
+    public Running(DateTime date, int durationMinutes, double distance) : base(date, durationMinutes)
+    {
+        _distance = distance;
+    }
+
+    public override double GetDistance() => _distance;
+
+    public override double GetSpeed() => (GetDistance() / DurationMinutes) * 60;
+
+    public override double GetPace() => DurationMinutes / GetDistance();
+
+    protected override string GetDistanceUnit() => "miles";
+    protected override string GetSpeedUnit() => "mph";
+    protected override string GetPaceUnit() => "mile";
+}
+
+Same pattern with the rest of the classes.
+
+9)Enabling Change
+
+I loved OOP, because, by these principles any project can be dynamic and flexible, and at the same time 
+you are able to protect, manage the access to the attributes and control each small part of the project and test and debug.
